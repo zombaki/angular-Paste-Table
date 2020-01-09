@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Angular';
+  name = 'Paste it';
+  data(event:ClipboardEvent) {
+    let clipboardData = event.clipboardData;
+  let pastedText = clipboardData.getData('text');
+  console.log(pastedText);
+  }
 }
