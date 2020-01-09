@@ -12,7 +12,7 @@ export class AppComponent  {
   name = 'Paste it';
   val:any;
    displayedColumns: string[] ;//= ['position', 'name', 'weight', 'symbol'];
-  dataSource: any[]; //= ELEMENT_DATA;
+  dataSource: any[] = []; //= ELEMENT_DATA;
 
   data(event:ClipboardEvent) {
     let clipboardData = event.clipboardData;
@@ -21,7 +21,9 @@ export class AppComponent  {
   let row_data = pastedText.split('\n');
   this.displayedColumns = row_data[0].split('\t');
   // Create table dataSource
-
-  this.dataSource = row_data[1].split('\t');
+   let row: any[]=[];
+ this.displayedColumns.forEach((a, index)=>{row[a]= row_data[1].split('\t')[index]});
+ console.log(row);
+  this.dataSource = row;
   }
 }
