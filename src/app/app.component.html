@@ -6,7 +6,7 @@
   (paste)="data($event)">
   paste area
 </div>
-
+<div>{{val}}</div>
  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
     <th mat-header-cell *matHeaderCellDef> {{column}} </th>
