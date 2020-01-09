@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-const ELEMENT_DATA: any[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'}
-];
+
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -11,8 +9,8 @@ const ELEMENT_DATA: any[] = [
 export class AppComponent  {
   name = 'Paste it';
   val:any;
-   displayedColumns: string[] ;//= ['position', 'name', 'weight', 'symbol'];
-  dataSource: any[] = []; //= ELEMENT_DATA;
+   displayedColumns: string[] ;
+  dataSource: any[] = [];
 
   data(event:ClipboardEvent) {
     let clipboardData = event.clipboardData;
