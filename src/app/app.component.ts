@@ -16,14 +16,18 @@ export class AppComponent  {
 
   data(event:ClipboardEvent) {
     let clipboardData = event.clipboardData;
-  let pastedText = clipboardData.getData('text');
-  console.log(pastedText);
-  let row_data = pastedText.split('\n');
-  this.displayedColumns = row_data[0].split('\t');
-  // Create table dataSource
-   let row: any[]=[];
- this.displayedColumns.forEach((a, index)=>{row[a]= row_data[1].split('\t')[index]});
- console.log(row);
-  this.dataSource = row;
-  }
+    let pastedText = clipboardData.getData('text');
+    let row_data = pastedText.split('\n');
+    this.displayedColumns = row_data[0].split('\t');
+    delete row_data[0];
+    // Create table dataSource
+    let data=[];
+
+    row_data.forEach(row_data=>{
+        let row={};
+      this.displayedColumns.forEach((a, index)=>{row[a]= row_data.split('\t')[index]});
+      data.push(row);
+    })
+    this.dataSource = data;
+    }
 }
